@@ -1,12 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../constants";
 
 const Hero = () => {
   const [show, setShow] = useState(false);
   const [phone, setPhone] = useState("");
 
+  useEffect(() => {
+    function scrollTrack() {
+      if (window.scrollY >= 700) setShow(true);
+      else setShow(false);
+    }
+
+    window.addEventListener("scroll", scrollTrack);
+
+    return () => {
+      window.removeEventListener("scroll", scrollTrack);
+    };
+  }, []);
+
   return (
-    <div className="pb-20 pt-0">
+    <div>
       <div className="relative h-[100vh] w-full flex items-center justify-center">
         <div className="flex flex-col md:flex-row-reverse mx-auto max-w-[1280px] w-full justify-center z-10 bg-transparent">
           <img
@@ -85,43 +98,24 @@ const Hero = () => {
                         )}
                       </div>
                       <button
+                        disabled={phone !== "" && phone.length !== 10}
                         type="submit"
-                        class="text-center text-sm leading-7 justify-between pt-2 ml-2 bg-[#FDEF78] rounded-xl z-10 py-2 px-4 disabled:opacity-80 disabled:cursor-not-allowed"
+                        className="text-center text-sm leading-7 justify-between pt-2 ml-2 bg-[#FDEF78] rounded-xl z-10 py-2 px-4 disabled:opacity-80 disabled:cursor-not-allowed"
                       >
                         <span>Apply Now</span>
                       </button>
                     </div>
                   </form>
                   <div className="consent flex items-center py-4 px-2 max-w-xs">
-                    <input type="checkbox" checked="" id="consent-msg" />
+                    <input type="checkbox" checked id="consent-msg" />
                     <label
                       for="consent-msg"
-                      className="consent text-white md:text-black text-[10px] leading-3 cursor-pointer"
+                      className="consent relative text-white md:text-black text-[10px] leading-3 cursor-pointer"
                     >
                       You agree to be contacted by Uni Cards over Call, SMS, Email or WhatsApp to guide you through your
                       application.
                     </label>
                   </div>
-                </div>
-              </div>
-              <div className="hidden max-w-xs flex-col justify-start">
-                <div className="w-full max-w-[300px]">
-                  <a
-                    href="https://uni-growth.onelink.me/v6cm/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block google-btn-2 font-medium p-4 rounded-lg z-10 bg-[#FDEF78] text-black -mt-2 disabled:bg-[#AEAB8C]"
-                  >
-                    <div className="w-full flex justify-center items-center">
-                      <span>Download</span>
-                    </div>
-                  </a>
-                </div>
-                <div className="my-2">
-                  <p className="text-white md:text-black text-[10px] leading-3">
-                    Thank you for your interest in the Uni Card.
-                    <br /> Download the Uni Cards app now and get your Uni Card in minutes.
-                  </p>
                 </div>
               </div>
             </div>
@@ -185,7 +179,7 @@ const Hero = () => {
               <input type="checkbox" id="consent-msg" checked />
               <label
                 htmlFor="consent-msg"
-                className="consent items-center text-white md:text-black text-[10px] leading-3 cursor-pointer"
+                className="consent relative items-center text-white md:text-black text-[10px] leading-3 cursor-pointer"
               >
                 You agree to be contacted by Uni Cards over Call, SMS, Email or WhatsApp to guide you through your
                 application.
@@ -193,6 +187,64 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div style={{ opacity: show ? 1 : 0, transition: "0.5s", position: "relative", zIndex: 100 }}>
+        <section className="hidden sm:block fixed bottom-0 w-screen bg-uni-grey py-5 z-10">
+          <div className="mx-auto max-w-7xl px-12 w-full flex justify-between">
+            <div className="flex justify-between items-center block w-full">
+              <div className="flex w-full flex-row justify-between items-center">
+                <form>
+                  <div className="flex bg-black p-1 pl-2 rounded-xl justify-between">
+                    <div className="flex items-center">
+                      <input
+                        className="min-w-lg bg-black border-0 outline-none text-white p-1 placeholder-[#7E8587] w-44"
+                        placeholder="Enter Phone Number"
+                        value={phone}
+                        onChange={(e) => {
+                          const input = e.target.value;
+                          const regex = /^[0-9]*$/; // Regex to match only numbers
+                          if (regex.test(input) && input.length <= 10) {
+                            setPhone(input);
+                          }
+                        }}
+                      />
+                      <span className="w-6">
+                        {phone && (
+                          <button onClick={() => setPhone("")}>
+                            <svg width="14" height="15" fill="white" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M1.498.498.356 1.72l5.41 5.786L.41 13.233l1.17 1.25 5.355-5.728 5.41 5.786 1.142-1.22-5.41-5.787 5.492-5.873-1.17-1.25-5.491 5.873L1.498.498Z"
+                                fill="#fff"
+                              ></path>
+                            </svg>
+                          </button>
+                        )}
+                      </span>
+                    </div>
+                    <button
+                      disabled={phone !== "" && phone.length !== 10}
+                      type="submit"
+                      className="text-center text-sm leading-7 justify-between pt-2 ml-2 bg-[#FDEF78] rounded-xl z-10 py-2 px-4 disabled:opacity-80 disabled:cursor-not-allowed"
+                    >
+                      <span>Apply Now</span>
+                    </button>
+                  </div>
+                </form>
+                <div className="consent flex items-center py-4 px-2 max-w-xs">
+                  <input type="checkbox" id="consent-msg" checked />
+                  <label
+                    for="consent-msg"
+                    className="consent flex items-center relative text-white md:text-black text-[10px] leading-3 cursor-pointer"
+                  >
+                    You agree to be contacted by Uni Cards over Call, SMS, Email or WhatsApp to guide you through your
+                    application.
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

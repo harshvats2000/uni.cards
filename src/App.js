@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     AOS.init();
   }, []);
+
   return (
     <div>
       <Header />

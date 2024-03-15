@@ -18,7 +18,8 @@ const Section2 = () => {
               <span className="text-[#9EA7AE]">And it's</span>
             </p>
             <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1500">
-              lifetime free<span className="text-[#9EA7AE]">; no joining fee, no annual charges.</span>
+              lifetime <span className="text-uni-green">free</span>
+              <span className="text-[#9EA7AE]">; no joining fee, no annual charges.</span>
             </p>
           </div>
           <div

@@ -71,7 +71,6 @@ header {
 
 .consent label:before {
   content: "";
-  -webkit-appearance: none;
   background-color: #fff;
   box-shadow: 0 1px 2px rgb(0 0 0/5%), inset 0 -15px 10px -12px rgb(0 0 0/5%);
   padding: 6px;
@@ -82,7 +81,8 @@ header {
   margin-right: 8px;
   border-radius: 3px;
 }
-consent input[type="checkbox"]:checked + label:after {
+
+.consent input[type="checkbox"]:checked + label:after {
   content: "";
   display: block;
   position: absolute;
@@ -93,6 +93,13 @@ consent input[type="checkbox"]:checked + label:after {
   border: solid #000;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+
+  @media screen and (min-width: 32em) {
+    top: 3px;
+  }
+  @media screen and (min-width: 48em) {
+    top: 7px;
+  }
 }
 
 .consent input[type="checkbox"] {
@@ -165,4 +172,12 @@ consent input[type="checkbox"]:checked + label:after {
 ::-ms-input-placeholder {
   /* Edge 12-18 */
   color: #6a6a6a !important;
+}
+
+.text-uni-green {
+  color: rgba(90, 214, 196, 1);
+}
+
+.bg-uni-grey {
+  background: rgba(245, 245, 245, 1);
 }
