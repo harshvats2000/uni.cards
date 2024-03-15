@@ -34,14 +34,15 @@ const Section4 = () => {
               />
             </div>
           </div>
-          <div className="flex-[50%] flex flex-col" />
-          <p className="font-medium text-base text-white leading-[18px] md:text-2xl">
-            {" "}
-            No hidden charges, no last minute surprises.
-          </p>
-          <p className="text-sm text-gray-4 mt-2 md:text-lg">
-            <span>100% money back guarantee if a charge is applied without your knowledge.</span>
-          </p>
+          <div className="flex-[50%] flex flex-col">
+            <p className="font-medium text-base text-white leading-[18px] md:text-2xl">
+              {" "}
+              No hidden charges, no last minute surprises.
+            </p>
+            <p className="text-sm text-gray-4 mt-2 md:text-lg">
+              <span>100% money back guarantee if a charge is applied without your knowledge.</span>
+            </p>
+          </div>
         </div>
         <div className="flex false w-full items-center md:flex-col md:max-w-xs my-12 md:my-0">
           <div className="flex-[50%] flex-shrink-0 flex w-full">

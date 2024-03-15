@@ -6,7 +6,7 @@ const Section2 = () => {
     <div className="py-12 md:py-[150px]">
       <section>
         <div className="w-full max-w-7xl mx-auto px-6 md:px-4">
-          <div className="flex flex-col justify-center md:text-center text-[28px] md:text-[40px] leading-[34px] md:leading-[1.2] tx-black-primary md:pb-16 font-medium">
+          <div className="flex flex-col justify-center md:text-center text-[28px] md:text-[40px] leading-[34px] md:leading-[1.2] tx-black-primary md:pb-16 font-regular">
             <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="0">
               Earn 1% assured cashback <span className="text-[#9EA7AE]">on your spends. Get</span> 5X
             </p>

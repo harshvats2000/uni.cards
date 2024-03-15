@@ -5,16 +5,19 @@
 @font-face {
   font-family: "Matter";
   src: url("./fonts/Matter-Regular.woff2") format("woff2");
-  /* Add additional font formats if necessary */
-  /* Specify the correct path to the font files */
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Matter";
+  src: url("./fonts/Matter-Medium.woff2") format("woff2");
+  font-weight: 500; /* Specify the weight for the bold font */
 }
 
 @font-face {
   font-family: "Matter";
   src: url("./fonts/Matter-Bold.woff2") format("woff2");
-  /* Add additional font formats if necessary */
-  /* Specify the correct path to the bold font files */
-  font-weight: bold; /* Specify the weight for the bold font */
+  font-weight: 700; /* Specify the weight for the bold font */
 }
 
 body {
@@ -183,4 +186,8 @@ header {
   color: transparent;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+.text-gray-4 {
+  color: rgba(142, 147, 147, 1);
 }
