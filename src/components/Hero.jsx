@@ -3,12 +3,14 @@ import { BASE_URL } from "../constants";
 
 const Hero = () => {
   const [show, setShow] = useState(false);
+  const [showApplyDesktop, setShowApplyDesktop] = useState(false);
   const [phone, setPhone] = useState("");
+  const [checked, setChecked] = useState(true);
 
   useEffect(() => {
     function scrollTrack() {
-      if (window.scrollY >= 700) setShow(true);
-      else setShow(false);
+      if (window.scrollY >= 700) setShowApplyDesktop(true);
+      else setShowApplyDesktop(false);
     }
 
     window.addEventListener("scroll", scrollTrack);
@@ -107,10 +109,10 @@ const Hero = () => {
                     </div>
                   </form>
                   <div className="consent flex items-center py-4 px-2 max-w-xs">
-                    <input type="checkbox" checked id="consent-msg" />
+                    <input type="checkbox" checked={checked} onChange={(e) => setChecked(!checked)} id="consent-msg" />
                     <label
-                      for="consent-msg"
-                      className="consent relative text-white md:text-black text-[10px] leading-3 cursor-pointer"
+                      htmlFor="consent-msg"
+                      className="consent flex items-center relative text-white md:text-black text-[10px] leading-3 cursor-pointer"
                     >
                       You agree to be contacted by Uni Cards over Call, SMS, Email or WhatsApp to guide you through your
                       application.
@@ -176,7 +178,7 @@ const Hero = () => {
               />
             </button>
             <div className="consent flex items-center py-4 px-2 max-w-xs">
-              <input type="checkbox" id="consent-msg" checked />
+              <input type="checkbox" id="consent-msg" checked={checked} onChange={(e) => setChecked(!checked)} />
               <label
                 htmlFor="consent-msg"
                 className="consent relative items-center text-white md:text-black text-[10px] leading-3 cursor-pointer"
@@ -189,7 +191,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div style={{ opacity: show ? 1 : 0, transition: "0.5s", position: "relative", zIndex: 100 }}>
+      <div style={{ opacity: showApplyDesktop ? 1 : 0, transition: "0.5s", position: "relative", zIndex: 100 }}>
         <section className="hidden sm:block fixed bottom-0 w-screen bg-uni-grey py-5 z-10">
           <div className="mx-auto max-w-7xl px-12 w-full flex justify-between">
             <div className="flex justify-between items-center block w-full">
@@ -232,9 +234,9 @@ const Hero = () => {
                   </div>
                 </form>
                 <div className="consent flex items-center py-4 px-2 max-w-xs">
-                  <input type="checkbox" id="consent-msg" checked />
+                  <input type="checkbox" id="consent-msg" checked={checked} onChange={(e) => setChecked(!checked)} />
                   <label
-                    for="consent-msg"
+                    htmlFor="consent-msg"
                     className="consent flex items-center relative text-white md:text-black text-[10px] leading-3 cursor-pointer"
                   >
                     You agree to be contacted by Uni Cards over Call, SMS, Email or WhatsApp to guide you through your

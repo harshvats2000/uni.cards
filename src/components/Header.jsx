@@ -67,16 +67,16 @@ const Header = () => {
 
       <div className="md:hidden">
         <div
-          class="text-white shadow-lg"
+          className="text-white shadow-lg"
           style={{ opacity: show ? 1 : 0, transition: "0.2s", background: "rgba(0,0,0,.6)" }}
         >
-          <div class="p-4 px-5 font-medium text-sm leading-7">
-            <a href="https://paychek.uni.club/" class="flex justify-between">
+          <div className="p-4 px-5 font-medium text-sm leading-7">
+            <a href="https://paychek.uni.club/" className="flex justify-between">
               <span>Uni Paychek</span>
               <span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
+                  className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
