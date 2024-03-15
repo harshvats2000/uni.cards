@@ -140,7 +140,7 @@ const Hero = () => {
                   id="phone"
                   className="phone-input w-full text-lg border-0 outline-none rounded-tr-xl rounded-tl-xl py-3"
                   placeholder="Enter your phone number"
-                  autoComplete={false}
+                  autoComplete="false"
                   value={phone}
                   onChange={(e) => {
                     const input = e.target.value;
